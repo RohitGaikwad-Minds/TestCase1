@@ -1,0 +1,36 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class RegistrationTest {
+    public static void main(String[] args) {
+        // Set the path to your ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver.exe");
+
+        // Instantiate ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the registration page
+        driver.get("https://automationexercise.com/");
+
+        // Find registration form elements and fill in the required information
+        WebElement usernameField = driver.findElement(By.id("username"));
+        usernameField.sendKeys("your_username");
+
+        WebElement passwordField = driver.findElement(By.id("password"));
+        passwordField.sendKeys("your_password");
+
+        WebElement emailField = driver.findElement(By.id("email"));
+        emailField.sendKeys("your_email@example.com");
+
+        // Submit the form
+        WebElement registerButton = driver.findElement(By.xpath("//button[@type='submit']"));
+        registerButton.click();
+
+        // Optionally, add assertions to verify the registration was successful
+
+        // Close the browser
+        driver.quit();
+    }
+}
